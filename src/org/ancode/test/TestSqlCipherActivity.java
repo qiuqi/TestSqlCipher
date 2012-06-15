@@ -6,6 +6,7 @@ import net.sqlcipher.database.SQLiteDatabase;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 
 public class TestSqlCipherActivity extends Activity {
@@ -19,7 +20,9 @@ public class TestSqlCipherActivity extends Activity {
     
     private void InitializeSQLCipher(){
     	SQLiteDatabase.loadLibs(this);
-    	File databaseFile = getDatabasePath("demo.db");
+    	//File databaseFile = getDatabasePath("demo.db");
+    	File databaseFile = new File(Environment.getExternalStorageDirectory()+"/MIXUN/db/", "demo.db");
+
     	Log.v("test", databaseFile.getPath());
     	if(databaseFile.mkdirs()){
     		Log.v("test", "Created");
